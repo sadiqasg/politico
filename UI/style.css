@@ -41,6 +41,7 @@ input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 20px;
+    outline: none;
 }
 
 #join-container input[type=text], 
@@ -132,6 +133,7 @@ span.psw {
         margin: 0 auto;
     }
 }
+
 @media screen and (max-width: 800px) {
     span.psw {
         display: block;
