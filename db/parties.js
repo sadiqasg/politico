@@ -21,4 +21,4 @@ const parties = [
   },
 ];
 
-export default parties;
+module.exports = parties;
