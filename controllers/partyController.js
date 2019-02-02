@@ -20,4 +20,5 @@ class PartyController {
   }
 }
 
+
 module.exports = PartyController;

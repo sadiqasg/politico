@@ -4,7 +4,6 @@ import routes from './routes/index';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const apiVersion = 'api/v1';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,3 +18,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app.listen;
