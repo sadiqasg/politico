@@ -11,4 +11,4 @@ const offices = [
   },
 ];
 
-export default offices;
+module.exports =  offices;
