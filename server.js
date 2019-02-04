@@ -9,7 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.use('/api/v1', routes);
+const apiVersion1 = '/api/v1';
+
+app.use(apiVersion1, routes);
 
 app.get('/', (req, res) => {
   res.send('index');
