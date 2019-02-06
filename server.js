@@ -1,7 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import pg from 'pg';
+
+const { Client } = require('pg');
+
 import routes from './routes/index';
 
 const app = express();
@@ -19,8 +21,21 @@ app.get('/', (req, res) => {
   res.send('index');
 });
 
-app.post('/office/add', (req, res) => {
-  res.send('party added!')
+app.post('/office', (req, res) => {
+  const client = new Client();
+  client.connect()
+    .then(() => {
+	  console.log('connection complete');
+
+	  const sql = 'INSERT INTO offices (type, name) VALUES ($1, $2)';
+	  const params = ['Fed', 'Senate presido'];
+
+	  return client.query(sql, params);
+    })
+    .then((result) => {
+	  console.log('result?', result);
+	  res.redirect('/');
+    });
 })
 
 app.listen(port, () => {

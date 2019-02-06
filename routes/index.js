@@ -15,6 +15,6 @@ routes.get('/delete/parties/:id', PartyController.deleteParty);
 routes.get('/offices', OfficeController.getOffices);
 routes.get('/offices/:id', OfficeController.getAnOffice);
 
-routes.get('/office/add', OfficeController.addOffice);
-// routes.post('/office/add', OfficeController.postOffice);	
+routes.get('/office/add', OfficeController.addOffice);	
+// routes.post('/office', OfficeController.postOffice);
 export default routes;
