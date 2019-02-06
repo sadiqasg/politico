@@ -20,6 +20,15 @@ class OfficeController {
       });
     }
   }
+
+  static addOffice(req, res) {
+    res.send('<form method="POST" action="/office/add"><input name="type" placeholder="Enter type"><input name="name" placeholder="Enter name"><button type="submit">save</button></form>')
+  }
+
+  // static postOffice(req, res) {
+  //   res.send('party added!')
+  // }
+
 }
 
 module.exports = OfficeController;

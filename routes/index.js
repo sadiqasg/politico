@@ -1,3 +1,5 @@
+import bodyParser from 'body-parser';
+
 import { Router } from 'express';
 import PartyController from '../controllers/partyController';
 import OfficeController from '../controllers/officeController';
@@ -13,4 +15,6 @@ routes.get('/delete/parties/:id', PartyController.deleteParty);
 routes.get('/offices', OfficeController.getOffices);
 routes.get('/offices/:id', OfficeController.getAnOffice);
 
+routes.get('/office/add', OfficeController.addOffice);
+// routes.post('/office/add', OfficeController.postOffice);	
 export default routes;
