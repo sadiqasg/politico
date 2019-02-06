@@ -1,3 +1,7 @@
+https://travis-ci.org/saslamp/politico.svg?branch=develop
+
+[![Coverage Status](https://coveralls.io/repos/github/saslamp/politico/badge.svg?branch=develop)](https://coveralls.io/github/saslamp/politico?branch=develop)
+
 # Project Title
 
 ## Politico
