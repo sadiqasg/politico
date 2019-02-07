@@ -1,4 +1,4 @@
-import offices from '../db/offices';
+import offices from '../models/offices';
 
 class OfficeController {
 // get offices

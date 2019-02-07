@@ -7,6 +7,7 @@ import OfficeController from '../controllers/officeController';
 const routes = Router();
 
 // parties
+routes.post('/parties', partyController.createParty);
 routes.get('/parties', PartyController.getParties);
 routes.get('/parties/:id', PartyController.getSpecificParty);
 routes.get('/delete/parties/:id', PartyController.deleteParty);
