@@ -4,79 +4,86 @@ import db from '../models/db';
 class PartyController {
   static createParty(req, res) {
     const { name, hqAddress, logoUrl } = req.body;
-    if (!name || !hqAddress || !logoUrl) {
-      return res.send({ status: 400, error: 'All fields are required!' });
-    }
+    const sql = 'INSERT INTO Parties (name, "hqAddress", "logoUrl") VALUES($1, $2, $3) RETURNING *';
+    const prm = [name, hqAddress, logoUrl];
 
-    const sql = 'INSERT INTO parties (name, hqAddress, logoUrl) VALUES ($1, $2, $3) RETURNING * '
-    const param = [name, hqAddress, logoUrl]
+    console.log(req.body);
 
-    db.query(sql, param).then((party) => {
-      res.status(201).send({
-        data: [party.rows]
+    db.query(sql, prm).then((newParty)=>{
+        return res.status(201).send({
+          success: true,
+          message: 'new party created',
+          parties: newParty.rows[0],
+        });
       })
-    }).catch((err) => {
-      return res.send(err)
-    })
-  },
+    .catch((err)=>{
+        return res.status(422).send({
+          success: false,
+          message: 'party was not created',
+          err
+        })
+      }) 
+  }
 
   // get all parties
   static getParties(req, res) {
-    let sql = 'SELECT * FROM party'
-    db.query(sql).then((party) => {
-      return res.send({ status: 200, data: party.rows[0] });
+    let sql = 'SELECT * from Parties';
+    db.query(sql).then((parties)=>{ 
+      return res.status(200).send({
+        success: true,
+        parties
+      }) 
+    }).catch((err)=>{
+      return res.status(400).send({
+        success: false,
+        message: 'error'
+      })
     })
-  },
+  }
 
   static getSpecificParty(req, res) {
-    const findParty = parties.filter(party => party.id === parseInt(req.params.id, 10));
-    if (findParty) {
-      return res.status(200).send({
-        status: 200,
-        party: findParty,
+    // const findParty = parties.filter(party => party.id === parseInt(req.params.id, 10));
+    // if (findParty) {
+    //   return res.status(200).send({
+    //     status: 200,
+    //     party: findParty,
+    //   });
+    // }
+    const id = parseInt(req.params.id);
+    let sql= `SELECT * FROM Parties WHERE id = ${id}`;
+
+    db.query(sql).then((parties)=>{
+      res.status(200).send({
+        success: true,
+        message: parties
       });
-    }
+    }).catch((err)=>{
+      return res.status(404).send({
+        success: false,
+        message: 'Political party dont exist'
+      });
+    })
   }
 
-  static deleteParty(req, res) {
-    let id = req.params.id;
-    let data = parties.filter( data => {
-      return data.id == id;
-    })[0];
-    const index = parties.indexOf(data);
-  
-    if(index !== -1){
-  
-    parties.splice(index, 1);
-  
-    res.status(200).json({ 
-      status: 200,
-      data: [{message: `Party with id ${id} deleted.`}]});
-    } else {
-      res.status(201).json({ 
-      message: `Party with id ${id} not found.`});
-    }
+ static editAParty(req,res){
+    const id = parseInt(req.params.id);
+    const {name} = req.body
+    const sql = `UPDATE parties SET name = ${name} WHERE id = ${id} `
+    
+    db.query(sql).then((parties)=>{
+      return res.status(200).send({
+        success: true,
+        message: parties.rows[0]
+      })
+    }).catch((err)=>{
+      console.log(err)
+      return res.status(404).send({
+        success: false,
+        message:"party dont exist"
+      })
+    })
+        
   }
 }
-
-
-
-//   static updatePartyName (req, res) {
-//     const { id } = req.params;
-//     const data = partyDb.find(data=> data.id == id);
-//     if(data){
-//       data.name = req.body.name;
-//       return res.status(201).send({
-//       status: 201,
-//       message: "party name updated successfully",
-//       data: [data]
-//     });
-//   } else {
-//       return res.status(404).send({
-//       status: 404,
-//       error: "name of party not found!"
-//     });
-//   }
-// }
 
 module.exports = PartyController;
