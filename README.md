@@ -1,4 +1,4 @@
-https://travis-ci.org/saslamp/politico.svg?branch=develop
+[![Build Status](https://travis-ci.org/saslamp/politico.svg?branch=develop)](https://travis-ci.org/saslamp/politico)
 
 [![Coverage Status](https://coveralls.io/repos/github/saslamp/politico/badge.svg?branch=develop)](https://coveralls.io/github/saslamp/politico?branch=develop)
 
