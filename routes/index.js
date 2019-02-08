@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import { Router } from 'express';
 import PartyController from '../controllers/partyController';
 import OfficeController from '../controllers/officeController';
-import UserController from '../controllers/userController';
 
 const routes = Router();
 
@@ -17,7 +16,5 @@ routes.patch('/parties/:id', PartyController.editAParty);
 // offices
 routes.get('/offices', OfficeController.getOffices);
 routes.get('/offices/:id', OfficeController.getAnOffice);
-
-routes.post('/auth/signup', UserController.userSignup);
 
 export default routes;
