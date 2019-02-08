@@ -99,15 +99,11 @@
                 <tr>
                     <th>Party</th>
                     <th>Candidate</th>
-                    <th>Vote</th>
                     <th>Manage</th>
                 </tr>
                 <tr>
                     <td>Andela Party</td>
                     <td>John Doe</td>
-                    <td>
-                        <input type="radio" name="presido">
-                    </td>
                     <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
@@ -117,9 +113,6 @@
                     <td>Winners party</td>
                     <td>Jane Doe</td>
                     <td>
-                        <input type="radio" name="presido">
-                    </td>
-                    <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
                     </td>
@@ -127,9 +120,6 @@
                 <tr>
                     <td>Democratic party</td>
                     <td>Sambo Sadiq</td>
-                    <td>
-                        <input type="radio" name="presido">
-                    </td>
                     <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
@@ -143,15 +133,11 @@
                 <tr>
                     <th>Party</th>
                     <th>Candidate</th>
-                    <th>Vote</th>
                     <th>Manage</th>
                 </tr>
                 <tr>
                     <td>Andela</td>
                     <td>Johnathan Doe</td>
-                    <td>
-                        <input type="radio" name="primeM">
-                    </td>
                     <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
@@ -161,9 +147,6 @@
                     <td>Winners</td>
                     <td>Janet Doe</td>
                     <td>
-                        <input type="radio" name="primeM">
-                    </td>
-                    <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
                     </td>
@@ -171,9 +154,6 @@
                 <tr>
                     <td>Democratic party</td>
                     <td>Dr. Lorem Ipsum</td>
-                    <td>
-                        <input type="radio" name="primeM">
-                    </td>
                     <td>
                         <a href="#">Edit</a>&nbsp;
                         <a href="#">Delete</a>
@@ -194,7 +174,12 @@
         <div class="row">
             <h2>
                 Political parties
-                <button class="btn">add party</button>
+                <button class="btn" id="addparty">add party</button>
+                <form id="addpartyform" style="display: none">
+                    <input type="text" placeholder="Enter Name" required>
+                    <label><small>Upload logo </small><input type="file" accept="images/*"><label>
+                    <input type="submit" value="save" class="btn" id="partysavebtn">
+                </form>
             </h2>
             <table id="candidates-table">
                 <tr>
@@ -251,7 +236,12 @@
 
             <h2>
                 Political offices
-                <button class="btn">add office</button>
+                <button class="btn" id="addoffice">add office</button>
+                <form id="addofficeform" style="display: none">
+                    <input type="text" placeholder="Enter Name">
+                    <input type="text" placeholder="Enter candidates (seperate with commas)">
+                    <input type="submit" value="save" class="btn" id="officesavebtn">
+                </form>
             </h2>
             <table id="candidates-table" style="margin-bottom: 3rem;">
                 <tr>
@@ -325,6 +315,29 @@
             }
         }
 
+        let addparty = document.querySelector('#addparty');
+        let addpartyform = document.querySelector('#addpartyform');
+        let partysavebtn = document.querySelector('#partysavebtn');
+        addparty.onclick = function() {
+            addpartyform.style.display = "block";
+        }
+        partysavebtn.onclick = function() {
+            if (addpartyform.style.display == 'block') {
+                addpartyform.style.display = "none";
+            }
+        }
+
+        let addoffice = document.querySelector('#addoffice');
+        let addofficeform = document.querySelector('#addofficeform');
+        let officesavebtn = document.querySelector('#officesavebtn');
+        addoffice.onclick = function() {
+            addofficeform.style.display = "block";
+        }
+        officesavebtn.onclick = function() {
+            if (addofficeform.style.display == 'block') {
+                addofficeform.style.display = "none";
+            }
+        }
         // countdown timer
         // date we're counting down to
         let countDownDate = new Date("Feb 16, 2019 00:00:00").getTime();
