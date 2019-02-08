@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+
+    <link href="./styles/main.css" rel="stylesheet">
+    <style>
+        table img {
+            width: 100px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openPage(event, 'main')" id="defaultOpen">Politico</button>
+        <button class="tablinks" onclick="openPage(event, 'vote')">Vote</button>
+        <button class="tablinks" onclick="openPage(event, 'manage')">Manage</button>
+    </div>
+
+    <div id="main" class="tabcontent">
+        <div id="main-section">
+            <h2>Welcome To Politico</h2>
+            <p>Voting has never been this hassle free!</p>
+            <hr/>
+            <span>
+                <span>Countdown to next elections: <span id="timer"></span></span>
+            </span>
+            <input type="button" class="btn" id="myBtn" value="Change Date">
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>New Date</h4>
+                <form method="POST">
+                    <input type="datetime-local" class="input-x"/>
+                    <input type="datetime-local" placeholder="Select date"/>
+                    <center>
+                        <button type="submit" class="btn">SUBMIT</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+        <br/>
+
+    <div id="parties">
+        <h3>
+            Featured Parties
+        </h3>
+        <hr width="20%">
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="../images/party1.png">
+                    <p>Andela Party</p>
+                    <p><em>Opportunities for everyone</em></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="../images/party2.png">
+                    <p>Eagle Party</p>
+                    <p><em>Soaring high</em></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="../images/party3.jpg">
+                    <p>Winners Party</p>
+                    <p><em>Winning is our hobby</em></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="../images/party4.jpg">
+                    <p>Democratic Party</p>
+                    <p><em>Power belongs to the people</em></p>
+                </div>
+            </div>
+
+            </div>              
+        </div>
+    </div>
+
+    <div id="vote" class="tabcontent">
+
+        <h3>Voting Section</h3>
+
+        <hr width="20%">
+
+        <form action="/" method="POST">
+            <h4 id="presidential">Office of The President</h4>
+            <table id="candidates-table">
+                <tr>
+                    <th>Party</th>
+                    <th>Candidate</th>
+                    <th>Manage</th>
+                </tr>
+                <tr>
+                    <td>Andela Party</td>
+                    <td>John Doe</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Winners party</td>
+                    <td>Jane Doe</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Democratic party</td>
+                    <td>Sambo Sadiq</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- prime minister -->
+            <h4 id="prime-m">Office of The Prime Minister</h4>
+            <table id="candidates-table">
+                <tr>
+                    <th>Party</th>
+                    <th>Candidate</th>
+                    <th>Manage</th>
+                </tr>
+                <tr>
+                    <td>Andela</td>
+                    <td>Johnathan Doe</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Winners</td>
+                    <td>Janet Doe</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Democratic party</td>
+                    <td>Dr. Lorem Ipsum</td>
+                    <td>
+                        <a href="#">Edit</a>&nbsp;
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <hr/>
+
+        <h3>Results</h3>
+        <div id="results">
+            <p>Results: </p>
+        </div>
+    </div>
+
+    <div id="manage" class="tabcontent">
+        <div class="row">
+            <h2>
+                Political parties
+                <button class="btn" id="addparty">add party</button>
+                <form id="addpartyform" style="display: none">
+                    <input type="text" placeholder="Enter Name" required>
+                    <label><small>Upload logo </small><input type="file" accept="images/*"><label>
+                    <input type="submit" value="save" class="btn" id="partysavebtn">
+                </form>
+            </h2>
+            <table id="candidates-table">
+                <tr>
+                    <th>S/N</th>
+                    <th>Party name</th>
+                    <th>Party logo</th>
+                    <th>Manage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Andela party</td>
+                    <td>
+                        <img src="../images/party1.png">
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Eagle party</td>
+                    <td>
+                        <img src="../images/party2.png">
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Winners party</td>
+                    <td>
+                        <img src="../images/party3.jpg">
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Democratic party</td>
+                    <td>
+                        <img src="../images/party4.jpg">
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>
+                Political offices
+                <button class="btn" id="addoffice">add office</button>
+                <form id="addofficeform" style="display: none">
+                    <input type="text" placeholder="Enter Name">
+                    <input type="text" placeholder="Enter candidates (seperate with commas)">
+                    <input type="submit" value="save" class="btn" id="officesavebtn">
+                </form>
+            </h2>
+            <table id="candidates-table" style="margin-bottom: 3rem;">
+                <tr>
+                    <th>S/N</th>
+                    <th>Political Office</th>
+                    <th>Interested candidates</th>
+                    <th>Manage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Office of the President</td>
+                    <td>
+                        <li>John Doe - <span>Andela party</span></li>
+                        <li>Jane Doe - <span>Eagle party</span></li>
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Office of the Prime Minister</td>
+                    <td>
+                        <li>John Doe - <span>Andela party</span></li>
+                        <li>Jane Doe - <span>Eagle party</span></li>
+                    </td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openPage(evt, pageLink) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(pageLink).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.querySelector("#defaultOpen").click();
+
+        // modal
+        let modal = document.querySelector('#myModal');
+        let btn = document.querySelector("#myBtn");
+        let span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        let addparty = document.querySelector('#addparty');
+        let addpartyform = document.querySelector('#addpartyform');
+        let partysavebtn = document.querySelector('#partysavebtn');
+        addparty.onclick = function() {
+            addpartyform.style.display = "block";
+        }
+        partysavebtn.onclick = function() {
+            if (addpartyform.style.display == 'block') {
+                addpartyform.style.display = "none";
+            }
+        }
+
+        let addoffice = document.querySelector('#addoffice');
+        let addofficeform = document.querySelector('#addofficeform');
+        let officesavebtn = document.querySelector('#officesavebtn');
+        addoffice.onclick = function() {
+            addofficeform.style.display = "block";
+        }
+        officesavebtn.onclick = function() {
+            if (addofficeform.style.display == 'block') {
+                addofficeform.style.display = "none";
+            }
+        }
+        // countdown timer
+        // date we're counting down to
+        let countDownDate = new Date("Feb 16, 2019 00:00:00").getTime();
+
+        let x = setInterval(function() {
+
+        let now = new Date().getTime();
+            
+        let distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        document.querySelector("#timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+            
+            // for when the count down is over 
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector("#timer").innerHTML = "Check again in... 4 years!";
+            }
+        }, 1000);
+    </script>
+   
+</body>
+</html>

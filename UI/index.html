@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<header>
+    <h2 style="text-align: left;">Politico</h2>
+</header>
+
+<div class="main-container">
+    <h2>Welcome, Login to your account</h2>
+    <p><em>Don't have an account? <a href="./join.html">Click Here</a>To register</em></p>
+
+    <form action="/" method="POST">
+        <!-- <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div> -->
+
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+                
+            <button type="submit" id="login">Login</button>
+            <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="reset" class="cancelbtn">Cancel</button>
+            <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+        </div>
+    </form>
+</div>
+
+<script>
+    //for test
+    document.querySelector("#login").addEventListener("click", ()=> {
+        location.href = './views/main.html';
+    })
+</script>
+</body>
+</html>
