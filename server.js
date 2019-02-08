@@ -7,6 +7,7 @@ const { Client } = require('pg');
 import routes from './routes/index';
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -37,12 +38,8 @@ app.post('/office', (req, res) => {
     });
 })
 
-app.listen(process.env.PORT || 3000)
-
-// const port = process.env.PORT || 3000;
-
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 module.exports = app.listen;
