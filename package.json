@@ -20,7 +20,8 @@
     "url": "https://github.com/saslamp/politico/issues"
   },
   "engines": {
-    "node": "10.15.0"
+    "node": "10.15.0",
+    "npm": "6.4.1" 
   },
   "homepage": "https://github.com/saslamp/politico#readme",
   "dependencies": {
